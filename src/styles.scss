@@ -1,0 +1,12 @@
+@use "/src/app/middlewares/scss/others/default-rules/colors.scss";
+@use "/src/app/middlewares/scss/primeng/default-import.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+}

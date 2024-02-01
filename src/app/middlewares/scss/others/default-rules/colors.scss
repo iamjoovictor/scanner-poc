@@ -1,0 +1,45 @@
+:root .dark-theme {
+  // Scrollbar Styling
+  --scrollbar-color: #A50034;
+  --scrollbar-color-75: #a50034bf;
+  --scrollbar-track: #fff;
+
+  // principal Screen
+  --principal-primary: #000;
+  --principal-secondary: #000;
+  --principal-border: #fff;
+
+  // Input component
+  --input-background: #000;
+  --input-border: #fff;
+  --input-color: #fff;
+  --input-label-invalid: #e24c4c;
+
+  // Dropdown component
+  --dropdown-background: #000;
+  --dropdown-border: #fff;
+  --dropdown-color: #fff;
+}
+
+:root .light-theme {
+  // Scrollbar Styling
+  --scrollbar-color: #A50034;
+  --scrollbar-color-75: #a50034bf;
+  --scrollbar-track: #fff;
+
+  // principal Screen
+  --principal-primary: #fff;
+  --principal-secondary: #fff;
+  --principal-border: #000;
+
+  // Input component
+  --input-background: #fff;
+  --input-border: #000;
+  --input-color: #000;
+  --input-label-invalid: #e24c4c;
+
+  // Dropdown component
+  --dropdown-background: #fff;
+  --dropdown-border: #000;
+  --dropdown-color: #000;
+}

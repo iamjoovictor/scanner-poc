@@ -1,0 +1,69 @@
+.content-input-validator{
+  height: 54px;
+}
+
+.p-float-label {
+  input{
+    background-color: var(--input-background);
+    color: var(--input-color);
+
+    &[type=number]{
+      appearance: textfield;
+  
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+    }
+  
+    &[type=text-uppercase] {
+      text-transform: uppercase;
+    }
+  
+    &[type=color] {
+      width: 50%;
+      height: 32px;
+      appearance: none;
+      cursor: pointer;
+  
+      &::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+  
+      &::-webkit-color-swatch {
+        border: none;
+      }
+    }
+  
+    &:-webkit-autofill + label {
+      font-size: 12px;
+      top: -12px;
+      position: absolute;
+      pointer-events: none;
+      margin-top: -0.5rem;
+      transition-property: all;
+      transition-timing-function: ease;
+      line-height: 1;
+      left: 0.5rem;
+      color: var(--input-color);
+      transition-duration: 0.2s;
+    }
+
+    &.ng-invalid{
+      &.ng-untouched {
+        border-color: var(--input-border);
+      } 
+
+      &.ng-dirty + label {
+        color: var(--input-label-invalid);
+      }
+    }
+  } 
+
+  label {
+    margin-top: -0.5rem!important;
+    color: var(--input-color);
+  }
+}

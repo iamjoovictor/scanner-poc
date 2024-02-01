@@ -1,0 +1,48 @@
+@use "/src/app/middlewares/scss/others/default-rules/mixins/mixins.scss" as mixins;
+
+:host ::ng-deep .custom-spinner .p-progress-spinner-circle {
+  animation: custom-progress-spinner-dash 1.5s ease-in-out infinite, custom-progress-spinner-color 4s ease-in-out infinite;
+}
+
+.progress-spinner {
+  @include mixins.div-justify-align-direction(center, center);
+  @include mixins.width-and-height(100%, 100%);
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  pointer-events: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes custom-progress-spinner-color {
+  100%,
+  0% {
+      stroke: #16697A;
+  }
+  40% {
+      stroke: #489FB5;
+  }
+  66% {
+      stroke: #82C0CC;
+  }
+  80%,
+  90% {
+      stroke: #FFA62B;
+  }
+}
+
+@keyframes custom-progress-spinner-dash {
+  0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+  }
+  50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+  }
+  100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+  }
+}

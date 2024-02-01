@@ -1,0 +1,48 @@
+@use "/src/app/middlewares/scss/others/default-rules/colors.scss";
+
+:root {
+  overflow: auto;
+
+  .light-theme {
+    scrollbar-color: #A50034 white;
+  }
+
+  .dark-theme {
+    scrollbar-color: #A50034 white;
+  }
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-color-75);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track);
+}
+
+@media screen and (orientation: landscape) {
+  ::-webkit-scrollbar {
+    width: 0.5vh;
+    height: 0.5vh;
+  }
+
+  ::-webkit-scrollbar-thumb, :-webkit-scrollbar-track {
+    border-radius: 1vh;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  ::-webkit-scrollbar {
+    width: 0.5vw;
+    height: 0.5vw;
+  }
+
+  ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {
+    border-radius: 1vw;
+  }
+}

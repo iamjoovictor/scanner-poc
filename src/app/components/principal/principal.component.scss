@@ -1,0 +1,264 @@
+@use "/src/app/middlewares/scss/others/default-rules/mixins/mixins.scss" as mixins;
+@use "/src/app/middlewares/scss/others/sizes-import.scss";
+
+.principal-wrapper {
+  @include mixins.div-justify-align-direction(center, center);
+  position: relative;
+  min-height: 100%;
+  background-color: transparent;
+
+  video {
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .principal-form {
+    @include mixins.div-justify-align-direction(flex-start, center);
+    background-color: #E6E6E68C;
+    border: 1px solid var(--login-border);
+    width: 380px;
+    height: 460px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: -2;
+
+    .top-buttons {
+      @include mixins.div-justify-align-direction(flex-end, flex-end, row);
+      width: 80%;
+      margin-top: 1rem;
+
+      button {
+        background-color: var(--principal-secondary);
+        border: 1px solid var(--principal-border);
+        padding: 0.25rem;
+        color: var(--principal-border);
+
+        &:focus {
+          @include mixins.keyframe-basic-transition(fade);
+          @include mixins.animate(fade, 1s, linear, 1);
+        }
+
+        &.translate-button{
+          background-color: transparent;
+          margin-right: 0.25rem;
+        }
+      }
+    }
+
+    .principal-inputs {
+      width: 80%;
+
+      & > span {
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .content-input-validator{
+        height: 54px;
+      
+        label {
+          color: var(--input-color);
+          margin-top: -0.5rem!important;
+          font-weight: bold;
+        }
+        
+        input{
+          background-color: transparent;
+          color: var(--input-color);
+          border-color: var(--input-border);
+        
+          &[type=number]{
+            appearance: textfield;
+        
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+            }
+          }
+        
+          &[type=text-uppercase] {
+            text-transform: uppercase;
+          }
+        
+          &[type=color] {
+            width: 50%;
+            height: 32px;
+            appearance: none;
+            cursor: pointer;
+        
+            &::-webkit-color-swatch-wrapper {
+              padding: 0;
+            }
+        
+            &::-webkit-color-swatch {
+              border: none;
+            }
+          }
+        } 
+      }
+    }
+
+    .principal-button {
+      width: 80%;
+
+      div {
+        @include mixins.div-justify-align-direction(flex-end, normal, row);
+        width: 100%;
+      }
+
+      button {
+        background-color: #8AB4F8;
+
+        &:hover {
+          background-color: #8AB4F8B8;
+        }
+
+        ::ng-deep {
+          .p-button-label {
+            color: black!important;
+            font-weight: 400!important;
+          }
+        }
+      }
+    }
+  }
+}
+
+#toast-error {
+  @include mixins.div-justify-align-direction(center, center, row);
+  visibility: hidden;
+  position: absolute; 
+  background-color: #ffe7e6;
+  border: solid #ff5757;
+  border-width: 0 0 0 6px;
+  color: #ff5757;
+  width: 400px; 
+  height: 60px; 
+  top: 20px; 
+  right: 20px;
+
+  &.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+
+  .left-card {
+    @include mixins.div-justify-align-direction(center, center, column);
+    width: 15%;
+
+    i {
+      border: 1px solid #ff5757;
+      border-radius: 50%;
+      padding: 3px;
+    }
+  }
+
+  .right-card {
+    @include mixins.div-justify-align-direction(center, flex-start, column);
+    width: 85%;
+
+    .title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  
+    .value {
+      font-size: 14px;
+    }
+  }
+}
+
+
+//Media Query by width
+@media screen and (max-width: 380px) {
+  .principal-wrapper .principal-form {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  #toast-error {
+    width: calc(100% - 40px);
+  }
+}
+
+//Media Query by height
+@media screen and (max-height: 460px) {
+  .principal-wrapper {
+    @include mixins.div-justify-align-direction(flex-start, center);
+
+    .principal-form {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+    }
+  }
+}
+
+@media screen and (min-height: 1025px) {
+  .principal-wrapper {
+    .principal-form {
+      width: 540px;
+      height: 600px;
+      border-radius: 12px;
+    }
+
+    .margin-top-2rem{
+      margin-top: 3.5rem;
+    }
+
+    .margin-top-1-5rem{
+      margin-top: 2.5rem;
+    }
+    
+    .margin-bottom-1-5rem{
+      margin-bottom: 2.5rem;
+    }
+  }
+}
+
+@media screen and (min-height: 1911px) {
+  .principal-wrapper {
+    .principal-form {
+      width: 1080px;
+      height: 1200px;
+      border-radius: 24px;
+    }
+
+    .margin-top-2rem{
+      margin-top: 7rem;
+    }
+
+    .margin-top-1-5rem{
+      margin-top: 5rem;
+    }
+    
+    .margin-bottom-1-5rem{
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}

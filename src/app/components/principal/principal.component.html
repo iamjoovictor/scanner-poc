@@ -1,0 +1,74 @@
+<form class="principal-wrapper">
+  <video></video> 
+
+  <div class="principal-form">
+    <div class="top-buttons">
+      <button
+        pButton pRipple
+        type="button" class="pi pi-language translate-button"
+        (click)="changeLanguage()">
+      </button>
+
+      <button
+        pButton pRipple
+        type="button" class="pi pi-times translate-button"
+        (click)="closeForm()">
+      </button>
+    </div>
+
+    <div class="principal-inputs">
+      <span id="title">{{ formControlTitle }}</span>
+
+      <div class="content-input-validator margin-top-2rem">
+        <label>
+          {{ translateService.translate('principal.page') }}
+        </label>
+        <input
+          class="col-12"
+          type="text"
+          pInputText
+          [(ngModel)]="formControlPage"
+          autocomplete="off"
+          readonly = "readOnly"
+          name="page"
+          id="page">
+      </div>
+
+      <div class="content-input-validator margin-top-2rem">
+        <label>
+          {{ translateService.translate('principal.layout') }}
+        </label>
+        <input
+          class="col-12"
+          type="text"
+          pInputText
+          [(ngModel)]="formControlLayout"
+          autocomplete="off"
+          readonly = "readOnly"
+          name="layout"
+          id="layout">
+      </div>
+    </div>
+
+    <div class="principal-button">
+      <div class="margin-top-1-5rem margin-bottom-1-5rem">
+        <button 
+          pButton pRipple
+          type="submit" class="col-3"
+          [label]="translateService.translate('principal.save')"
+          (click)="onClickHandleSave()">
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div id="toast-error">
+  <div class="left-card">
+    <i class="pi pi-times"></i>
+  </div>
+  <div class="right-card">
+    <span class="title">Erro</span>
+    <span class="value">Imagem não corresponde a uma impressora!</span>
+  </div>
+</div>

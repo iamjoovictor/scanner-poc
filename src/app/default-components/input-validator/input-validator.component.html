@@ -1,0 +1,38 @@
+<div class="content-input-validator">
+  <span class="p-float-label">
+    <input
+      [class]="colSizeClass + ' ' + disabled"
+      [type]="inputType"
+      pInputText
+      [formControl] = "variableFormControl"
+      [mask]="maskInput"
+      [placeholder]="placeHolderInput"
+      [maxlength]="maxLenght"
+      [minlength]="minLenght"
+      autocomplete="off"
+      [readonly] = "readOnly"
+      [autofocus] = "autoFocus"
+      [name]="name"
+      [id]="inputId"
+      (keypress)="testNumber($event)"
+      (input)="onInputChange()"
+      (focus)="onInputFocus()"
+      (blur)="onInputBlur()"
+    >
+    <label for="float-input" [ngClass]="floatLabelClass">{{labelTitle}}</label>
+  </span>
+  <span *ngIf="errorStateMatcher.validator(variableFormControl, submited)" for="float-input">
+    <small *ngIf="variableFormControl.hasError(idFirstValidator)"
+      class="p-error block">
+        {{labelErrorFirstValidator}}
+    </small>
+    <small *ngIf="variableFormControl.hasError(idSecondValidator) && !variableFormControl.hasError(idFirstValidator)"
+      class="p-error block">
+        {{labelErrorSecondValidator}}
+    </small>
+    <small *ngIf="variableFormControl.hasError(idThirdValidator) && !variableFormControl.hasError(idSecondValidator) && !variableFormControl.hasError(idFirstValidator)"
+      class="p-error block">
+        {{labelErrorThirdValidator}}
+    </small>
+  </span>
+</div>
