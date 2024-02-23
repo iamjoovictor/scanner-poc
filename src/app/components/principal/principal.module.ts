@@ -1,5 +1,5 @@
 // Angular Imports
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Routing Import
@@ -49,6 +49,7 @@ import { GetTranslateService } from 'src/app/services/utils/get-translate/get-tr
   providers: [
     GetTranslateService
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PrincipalModule {
 }
